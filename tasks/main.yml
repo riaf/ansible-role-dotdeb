@@ -1,0 +1,14 @@
+---
+# tasks file for ansible-role-dotdeb
+
+- name: APT | Add DotDeb {{ debian_version }} repository
+  apt_repository: repo='{{ item }}' state=present
+  with_items:
+    - deb http://packages.dotdeb.org {{ debian_version }} all
+    - deb-src http://packages.dotdeb.org {{ debian_version }} all
+  tags: dotdeb
+
+- name: APT | Install DotDeb key
+  apt_key: url=http://www.dotdeb.org/dotdeb.gpg
+  tags: dotdeb
+

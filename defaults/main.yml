@@ -1,0 +1,6 @@
+---
+# defaults file for ansible-role-dotdeb
+
+sudo: yes
+debian_version: wheezy
+
